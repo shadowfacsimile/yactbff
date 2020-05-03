@@ -1,0 +1,24 @@
+{
+  "name": "yactbff",
+  "version": "1.0.0",
+  "description": "A Node/Express backend for frontend for YACT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadowfacsimile/yactbff.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shadowfacsimile/yactbff/issues"
+  },
+  "homepage": "https://github.com/shadowfacsimile/yactbff#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.15"
+  }
+}

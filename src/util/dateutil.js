@@ -2,16 +2,22 @@
 
 const { confirmed } = require('./readfiles');
 
+let toDateString = (date) => {
+    return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear().toString().substring(2, 4);
+};
+
 let date = new Date();
-let today = date.getDay() - 1 + '/' + date.getDate() + '/' + date.getFullYear().toString().substring(2, 4);
+let today = toDateString(date);
 date.setDate(date.getDate() - 1);
-let yesterday = date.getDay() + '/' + date.getDate() + '/' + date.getFullYear().toString().substring(2, 4);
+let yesterday = toDateString(date);
 
 if (!confirmed[0][today]) {
-    today = date.getDay() + '/' + date.getDate() + '/' + date.getFullYear().toString().substring(2, 4);
+    today = toDateString(date);
     date.setDate(date.getDate() - 1);
-    yesterday = date.getDay() + '/' + date.getDate() + '/' + date.getFullYear().toString().substring(2, 4);
+    yesterday = toDateString(date);
 }
 
 exports.today = today;
 exports.yesterday = yesterday;
+
+

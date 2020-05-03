@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 let appRouter = express.Router();
 const compression = require('compression');
+const cors = require('cors');
 
 const { india } = require('./util/readfiles');
 const summary = require('./stats/summary');
@@ -14,6 +15,7 @@ const deathsgrowth = require('./growth/deaths/deathsgrowth');
 const countriesdeathsgrowth = require('./growth/deaths/countriesdeathsgrowth');
 
 app.use(compression());
+app.use(cors());
 
 appRouter.get('/api', (req, res) => res.send('YACT API!'));
 
@@ -32,10 +34,7 @@ appRouter.get('/api/stats/states', (req, res) => {
     res.end(states);
 });
 
-appRouter.get('/api/stats/indiastats', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.end(india);
-});
+appRouter.get('/api/stats/indiastats', (req, res) => res.send(india));
 
 appRouter.get('/api/growth/cases', (req, res) => {
     res.setHeader('Content-Type', 'application/json');

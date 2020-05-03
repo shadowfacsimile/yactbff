@@ -3,14 +3,17 @@
 const express = require('express');
 const app = express();
 let appRouter = express.Router();
+const compression = require('compression');
 
-const { india } = require('./readfiles');
-const summary = require('./summary');
-const { countries, states } = require('./countrywise');
-const casesgrowth = require('./casesgrowth');
-const deathsgrowth = require('./deathsgrowth');
-const countriescasesgrowth = require('./countriescasesgrowth');
-const countriesdeathsgrowth = require('./countriesdeathsgrowth');
+const { india } = require('./util/readfiles');
+const summary = require('./stats/summary');
+const { countries, states } = require('./stats/countrywise');
+const casesgrowth = require('./growth/cases/casesgrowth');
+const countriescasesgrowth = require('./growth/cases/countriescasesgrowth');
+const deathsgrowth = require('./growth/deaths/deathsgrowth');
+const countriesdeathsgrowth = require('./growth/deaths/countriesdeathsgrowth');
+
+app.use(compression());
 
 appRouter.get('/api', (req, res) => res.send('YACT API!'));
 

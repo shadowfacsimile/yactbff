@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const { deaths } = require('./readfiles');
+const { deaths } = require('../../util/readfiles');
 
 let deathsGrowths = new Array();
 

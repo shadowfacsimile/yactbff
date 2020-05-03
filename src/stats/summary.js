@@ -1,8 +1,8 @@
 'use strict';
 
 const _ = require('lodash');
-const { confirmed, deaths, recovered } = require('./readfiles');
-const { today, yesterday } = require('./dateutil');
+const { confirmed, deaths, recovered } = require('../util/readfiles');
+const { today, yesterday } = require('../util/dateutil');
 
 let totalCases = 0;
 let totalNewCases = 0;

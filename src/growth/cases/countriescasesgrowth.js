@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const { confirmed } = require('./readfiles');
+const { confirmed } = require('../../util/readfiles');
 
 let casesGrowths = new Array();
 

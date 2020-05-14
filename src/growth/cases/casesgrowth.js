@@ -31,4 +31,4 @@ for (let item in confirmed) {
     }
 }
 
-exports.growths = JSON.stringify(growths);
+module.exports.growths = JSON.stringify(growths);

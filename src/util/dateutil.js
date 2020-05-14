@@ -19,5 +19,3 @@ if (!confirmed[0][today]) {
 
 exports.today = today;
 exports.yesterday = yesterday;
-
-

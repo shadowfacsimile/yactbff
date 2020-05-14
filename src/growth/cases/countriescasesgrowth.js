@@ -6,7 +6,7 @@ const { confirmed } = require('../../util/readfiles');
 let casesGrowths = new Array();
 
 let keys = Object.keys(confirmed[0]);
-let tempCountry = '';
+let tempCountry;
 
 for (let item in confirmed) {
     let country = confirmed[item]['Country/Region'];
@@ -53,4 +53,4 @@ for (let item in confirmed) {
     }
 }
 
-exports.growths = JSON.stringify(casesGrowths);
+module.exports.growths = JSON.stringify(casesGrowths);

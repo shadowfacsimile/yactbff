@@ -7,7 +7,7 @@ const { today, yesterday } = require('../util/dateutil');
 let countries = new Array();
 let states = new Array();
 
-let tempCountry = '';
+let tempCountry;
 
 for (let item in confirmed) {
     let country = confirmed[item]['Country/Region'];
@@ -56,8 +56,6 @@ for (let item in confirmed) {
     tempCountry = country;
 }
 
-tempCountry = '';
-
 for (let item in deaths) {
     let country = deaths[item]['Country/Region'];
     let state = confirmed[item]['Province/State'];
@@ -80,8 +78,6 @@ for (let item in deaths) {
         }
     });
 }
-
-tempCountry = '';
 
 for (let item in recovered) {
     let country = recovered[item]['Country/Region'];
@@ -109,5 +105,5 @@ for (let item in recovered) {
 countries = _.orderBy(countries, ['totalCases'], ['desc']);
 states = _.orderBy(states, ['country', 'totalCases'], ['asc', 'desc']);
 
-exports.countries = JSON.stringify(countries);
-exports.states = JSON.stringify(states);
+module.exports.countries = JSON.stringify(countries);
+module.exports.states = JSON.stringify(states);

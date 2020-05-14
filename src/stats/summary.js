@@ -56,4 +56,4 @@ let json = JSON.stringify({
     "countriesWithFirstDeath": countriesWithFirstDeath
 })
 
-exports.json = json;
+module.exports.json = json;

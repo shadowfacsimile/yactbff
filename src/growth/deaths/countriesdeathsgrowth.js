@@ -6,7 +6,7 @@ const { deaths } = require('../../util/readfiles');
 let deathsGrowths = new Array();
 
 let keys = Object.keys(deaths[0]);
-let tempCountry = '';
+let tempCountry;
 
 for (let item in deaths) {
     let country = deaths[item]['Country/Region'];
@@ -53,4 +53,4 @@ for (let item in deaths) {
     }
 }
 
-exports.growths = JSON.stringify(deathsGrowths);
+module.exports.growths = JSON.stringify(deathsGrowths);

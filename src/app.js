@@ -1,12 +1,12 @@
 'use strict';
 
 const express = require('express');
-const app = express();
-let appRouter = express.Router();
 const compression = require('compression');
 const cors = require('cors');
+const app = express();
+let appRouter = express.Router();
 
-const { india } = require('./util/readfiles');
+const { indiaStats } = require('./util/readfiles');
 const summary = require('./stats/summary');
 const { countries, states } = require('./stats/countrywise');
 const casesgrowth = require('./growth/cases/casesgrowth');
@@ -34,7 +34,7 @@ appRouter.get('/api/stats/states', (req, res) => {
     res.end(states);
 });
 
-appRouter.get('/api/stats/indiastats', (req, res) => res.send(india));
+appRouter.get('/api/stats/indiastats', (req, res) => res.send(indiaStats));
 
 appRouter.get('/api/growth/cases', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -59,4 +59,4 @@ appRouter.get('/api/growth/deaths/countries', (req, res) => {
 app.use('/', appRouter);
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Listening to ${PORT}`));
+app.listen(PORT, '127.0.0.1');

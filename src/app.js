@@ -6,6 +6,7 @@ const cors = require('cors');
 const app = express();
 let appRouter = express.Router();
 
+delete require.cache[require.resolve('./util/readfiles')];
 const { indiaStats } = require('./util/readfiles');
 const summary = require('./stats/summary');
 const { countries, states } = require('./stats/countrywise');
@@ -58,5 +59,5 @@ appRouter.get('/api/growth/deaths/countries', (req, res) => {
 
 app.use('/', appRouter);
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, '127.0.0.1');
+const PORT = process.env.PORT || 49161;
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

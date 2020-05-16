@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
+delete require.cache[require.resolve('../../util/readfiles')];
 const { deaths } = require('../../util/readfiles');
 
 let growths = new Array();

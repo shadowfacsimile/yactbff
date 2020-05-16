@@ -1,21 +1,12 @@
 'use strict';
 
+delete require.cache[require.resolve('./readfiles')];
 const { confirmed } = require('./readfiles');
 
-let toDateString = (date) => {
-    return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear().toString().substring(2, 4);
-};
-
-let date = new Date();
-let today = toDateString(date);
-date.setDate(date.getDate() - 1);
-let yesterday = toDateString(date);
-
-if (!confirmed[0][today]) {
-    today = toDateString(date);
-    date.setDate(date.getDate() - 1);
-    yesterday = toDateString(date);
-}
+let keys = Object.keys(confirmed[0]);
+let len = keys.length;
+let today = keys[len - 1];
+let yesterday = keys[len - 2];
 
 exports.today = today;
 exports.yesterday = yesterday;

@@ -1,9 +1,12 @@
 'use strict';
 
 const _ = require('lodash');
-delete require.cache[require.resolve('../util/readfiles')];
+
 const { confirmed, deaths, recovered } = require('../util/readfiles');
 const { today, yesterday } = require('../util/dateutil');
+
+delete require.cache[require.resolve('../util/readfiles')];
+delete require.cache[require.resolve('../util/dateutil')];
 
 let totalCases = 0;
 let totalNewCases = 0;
@@ -44,7 +47,7 @@ totalNewCases = totalCases - totalNewCases;
 totalNewDeaths = totalDeaths - totalNewDeaths;
 totalNewRecoveries = totalRecoveries - totalNewRecoveries;
 
-let json = JSON.stringify({
+let summary = JSON.stringify({
     "totalCases": totalCases,
     "totalNewCases": totalNewCases,
     "totalDeaths": totalDeaths,
@@ -57,4 +60,4 @@ let json = JSON.stringify({
     "countriesWithFirstDeath": countriesWithFirstDeath
 })
 
-module.exports.json = json;
+exports.summary = summary;

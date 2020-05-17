@@ -1,8 +1,9 @@
 'use strict';
 
 const _ = require('lodash');
-delete require.cache[require.resolve('../../util/readfiles')];
 const { confirmed } = require('../../util/readfiles');
+
+delete require.cache[require.resolve('../../util/readfiles')];
 
 let casesGrowths = new Array();
 

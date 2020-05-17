@@ -16,7 +16,7 @@ confirmed = _.orderBy(confirmed, ['Country/Region'], ['asc']);
 deaths = _.orderBy(deaths, ['Country/Region'], ['asc']);
 recovered = _.orderBy(recovered, ['Country/Region'], ['asc']);
 
-exports.confirmed = confirmed;
-exports.deaths = deaths;
-exports.recovered = recovered;
-exports.indiaStats = indiaStats;
+module.exports.confirmed = confirmed;
+module.exports.deaths = deaths;
+module.exports.recovered = recovered;
+module.exports.indiaStats = indiaStats;
